@@ -127,9 +127,8 @@ class UI {
     createWordBox(word, coords) {
         return {
             parent: this.gameContainer,
-            content: word,
+            content: `{center}${word}{/center}`,
             tags: true,
-            align: 'center',
             valign: 'middle',
             top: coords.y,
             left: coords.x,
@@ -145,7 +144,7 @@ class UI {
     gameOverToScreen(score, time, description) {
         this.gameOverContainer = this.blessed.box(this.gameOverBox)
         this.gameOverContainer.setContent(
-            `${description}\nScore: ${score} in ${time} secs\nPress Enter to play again`
+            `{center}${description}\nScore: ${score} in ${time} secs\nPress Enter to play again{/center}`
             )
     }
 
