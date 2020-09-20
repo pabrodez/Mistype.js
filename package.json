@@ -6,12 +6,25 @@
     "name": "Pablo M. Rodriguez",
     "email": "pabrodez@gmail.com"
   },
+  "homepage": "https://github.com/pabrodez/mistype",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pabrodez/mistype.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "play": "node index.js"
   },
-  "keywords": [],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "javascript",
+    "typing",
+    "game",
+    "node"
+  ],
   "license": "MIT",
   "dependencies": {
     "blessed": "^0.1.81"

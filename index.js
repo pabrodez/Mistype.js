@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
-let listPath = process.argv[2] || 'sample.txt' // should be process.argv[2] ?? 'sample.txt' isntead
+let listPath = process.argv[2] ?? 'sample.txt' // should be process.argv[2] ?? 'sample.txt' instead
 console.log(listPath)
 
-const { UI } = require('./UI')
-const { Game } = require('./Game.js')
+const { UI } = require('./src/UI')
+const { Game } = require('./src/Game.js')
 
 function readContent(callback) {
     fs.readFile(path.resolve(__dirname, 'wordLists', listPath), 'utf-8', (err, data) => {
@@ -24,4 +24,3 @@ readContent(function (err, content) {
         throw err
     }
 })
-
