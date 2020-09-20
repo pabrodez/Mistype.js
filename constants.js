@@ -7,9 +7,6 @@ const COLORS = {
     white: 'white'
 }
 
-const WORDS = ['pear', 'kiwi', 'pineapple', 'pear', 'kiwi', 'pineapple',
-'pear', 'kiwi', 'pineapple','pear', 'kiwi', 'pineapple']
-
 const GAME_SPEED = 1000;
 
-module.exports = {COLORS, WORDS, GAME_SPEED}
+module.exports = {COLORS, GAME_SPEED}

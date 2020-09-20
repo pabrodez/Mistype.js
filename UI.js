@@ -1,11 +1,13 @@
 const blessed = require('blessed');
-const {COLORS, WORDS} = require('./constants.js') 
+const {COLORS} = require('./constants.js') 
 
 class UI {
-    constructor() {
+    constructor(wordsArray) {
         this.blessed = blessed
         this.screen = blessed.screen()
         this.screen.title = 'Mistype.js'
+
+        this.wordsArray = wordsArray
 
         this.topBox = this.createTopBox();
         this.gameBox = this.createGameBox();
@@ -108,7 +110,7 @@ class UI {
         let usedXCoord = [];
         
 
-        WORDS.forEach((word, index) => {
+        this.wordsArray.forEach((word, index) => {
             let xCoord = this.generateRandomCoord(0, this.screen.width - 12)
             let yCoord = 10 + index * 3
             while (usedXCoord.some((x) => (xCoord >= x) && (xCoord <= x + 8))) {

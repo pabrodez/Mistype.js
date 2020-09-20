@@ -1,4 +1,4 @@
-const { WORDS, COLORS, GAME_SPEED } = require('./constants.js')
+const { COLORS, GAME_SPEED } = require('./constants.js')
 
 class Game {
   constructor(ui) {
@@ -104,7 +104,7 @@ class Game {
   }
 
   fillProgressBar() {
-    let progress = Math.round((this.currentWordIndex / WORDS.length) * 100)
+    let progress = Math.round((this.currentWordIndex / this.ui.wordsArray.length) * 100)
     this.ui.bottomContainer.setProgress(progress)
   }
 
@@ -117,15 +117,15 @@ class Game {
   }
 
   isEndOfCurrentWord() {
-    return this.currentLetterIndex >= WORDS[this.currentWordIndex].length
+    return this.currentLetterIndex >= this.ui.wordsArray[this.currentWordIndex].length
   }
 
   isEndOfWordsList() {
-    return this.currentWordIndex >= WORDS.length
+    return this.currentWordIndex >= this.ui.wordsArray.length
   }
 
   isLetterCorrect() {
-    return this.inputLetter === WORDS[this.currentWordIndex][this.currentLetterIndex]
+    return this.inputLetter === this.ui.wordsArray[this.currentWordIndex][this.currentLetterIndex]
   }
 
   getTimeDiff() {
