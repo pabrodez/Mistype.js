@@ -6,7 +6,7 @@ A terminal-based typing game written in JavaScript
 
 ![mistype.png](./mistype.png)
 
-### Install and play
+### 🕹️ Install and play
 
 ```bash
 git clone https://github.com/pabrodez/mistype
@@ -19,3 +19,9 @@ You can store a text file with comma separated words (no spaces) in the wordList
 ```bash
 npm run play -- yourlistofwords.txt
 ```
+
+### 🧰 🛠️ Used:
+- ES6+ syntax
+- Node.js
+
+### 🙏 Thanks to [Tania Rascia](https://www.taniarascia.com/) for [the post](https://www.taniarascia.com/snake-game-in-javascript/) this project is based on
