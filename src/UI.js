@@ -26,10 +26,12 @@ class UI {
         this.screen.key(['enter', 'return'], enterHandler)
     }
 
-    clearScreen() {
+    resetScreen() {
+        this.gameOverContainer.detach()
         this.gameContainer.detach()
         this.gameContainer = this.blessed.box(this.gameBox)
-        this.gameOverContainer.detach()
+        this.createWordContainers()
+        
         this.bottomContainer.detach()
         this.bottomContainer = this.blessed.progressbar(this.bottomBox)
     }
@@ -38,14 +40,14 @@ class UI {
         return {
             parent: this.screen,
             top: 0,
-            left: 'center',
+            left: 0,
             width: '100%',
             height: 1,            
             tags: true, 
-            content: 'Instructions: Type the highlighted word before it reaches the top',
+            content: '{center}Type the highlighted word before it reaches the top{/center}',
             style: {
-                fg: 'black',
-                bg: 'white',
+                fg: COLORS.lightPurple,
+                bg: COLORS.purple,
             }
         }
     }
@@ -58,8 +60,8 @@ class UI {
             width: '100%',
             height: '100%-1',
             style: {
-                fg: 'black',
-                bg: 'black'
+                fg: COLORS.brown,
+                bg: COLORS.brown
             },
         }
     }
@@ -75,9 +77,9 @@ class UI {
             filled: 0,
             style: {
                 bar: {
-                    fg: 'magenta',
-                    bg: 'magenta'
-                }
+                    bg: COLORS.lightPurple,
+                },
+                bg: COLORS.purple
             },
         }
     }
@@ -93,22 +95,15 @@ class UI {
             valign: 'middle',
             align: 'center',
             content: ``,
-            boder: {
-                type: 'line'
-            },
             style: {
-                bg: COLORS.red,
-                fg: COLORS.blue,
-                border: {
-                    fg: COLORS.blue
-                }
+                bg: COLORS.purple,
+                fg: COLORS.lightPurple,
             }
         }
     }
 
     createWordContainers() {
-        let usedXCoord = [];
-        
+        let usedXCoord = [];        
 
         this.wordsArray.forEach((word, index) => {
             let xCoord = this.generateRandomCoord(0, this.screen.width - 12)
@@ -137,8 +132,8 @@ class UI {
             height: 2,
             width: 12,
             style: {
-                fg: 'white',
-                bg: 'black',
+                fg: COLORS.lightPurple,
+                bg: COLORS.brown,
             }
         }
     }

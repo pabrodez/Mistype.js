@@ -10,7 +10,7 @@ class Game {
     this.inputLetter = ''
     this.score = 0
     this.timer = null
-    this.roundFinished = false
+    this.isplayingRound = true
 
     this.ui.bindHandlers(
       this.keyInput.bind(this),
@@ -25,20 +25,15 @@ class Game {
     this.inputLetter = ''
     this.score = 0
     clearInterval(this.timer)
-    this.roundFinished = false
+    this.isplayingRound = true
     
-    this.ui.clearScreen()
-    this.ui.createWordContainers()
+    this.ui.resetScreen()
 
     this.start()
   }
 
-  removeWords() {
-    this.ui.gameContainer.children.forEach(e => e.detach())
-  }
-
   keyInput(_, key) {
-    if (!this.roundFinished) {
+    if (this.isplayingRound) {
       this.inputLetter = key.name;      
 
       if (this.isLetterCorrect()) {
@@ -88,7 +83,7 @@ class Game {
             // no more words left to highlight
             // game is over
             this.times.finish = new Date();
-            this.roundFinished = true
+            this.isplayingRound = false
             clearInterval(this.timer)
             // this.ui.gameContainer.detach();
             this.showGameOver('Game over: reached last word')
@@ -102,9 +97,10 @@ class Game {
     });
     this.ui.render();
   }
+  
 
   fillProgressBar() {
-    let progress = Math.round((this.currentWordIndex / this.ui.wordsArray.length) * 100)
+    let progress = Math.round((this.score / this.ui.wordsArray.length) * 100)
     this.ui.bottomContainer.setProgress(progress)
   }
 

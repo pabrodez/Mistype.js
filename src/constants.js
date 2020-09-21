@@ -1,10 +1,8 @@
 const COLORS = {
-    red: '#EF476F',
-    yellow: '#FFD166',
-    green: '#06D6A0',
-    blue: '#118AB2',
-    black: '#073B4C',
-    white: 'white'
+    brown: '#241A15',
+    lightGray: '#E5D9D2',
+    purple: '#71589C',
+    lightPurple: '#EBE7F1'
 }
 
 const GAME_SPEED = 1000;
